@@ -1,11 +1,9 @@
-﻿using System.Threading.Tasks;
-using back.Data;
+﻿using back.Data;
 using back.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Formatter;
 using Microsoft.AspNetCore.OData.Query;
 using Microsoft.AspNetCore.OData.Routing.Controllers;
-using Microsoft.EntityFrameworkCore;
 
 namespace back.Controllers
 {
@@ -20,7 +18,7 @@ namespace back.Controllers
         }
 
         [EnableQuery]
-        public IActionResult Post([FromBody]User user)
+        public IActionResult Post([FromODataBody]User user)
         {
             _db.Users.Add(user);
             _db.SaveChanges();
